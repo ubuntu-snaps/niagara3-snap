@@ -25,14 +25,13 @@ parts:
     plugin: nil
     stage-packages:
       - util-linux
-  core:
+  setup:
     plugin: dump
     source: http://pubfs.iotapp.site/n4installer/3.8.111/setup-linux-x86.tgz
     source-type: tar
-    organize:
-      "*": bin/
     stage:
-      - -bin/ext/jxbrowser
+      - -install
+      - -uninstall
       - "*"
     stage-packages:
       - lib32stdc++6
