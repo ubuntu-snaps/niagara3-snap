@@ -1,0 +1,55 @@
+name: niagara3
+summary: Niagara Framework
+description: Niagara IoT Framework
+version: "3.8.111"
+adopt-info: overlay
+
+base: core24
+grade: devel
+confinement: devmode
+
+platforms:
+  amd64:
+
+apps:
+  niagarad:
+    command: bin/niagarad-wrapper
+    daemon: simple
+    environment:
+      LD_LIBRARY_PATH: $SNAP/bin
+      HOME: $SNAP_COMMON
+    plugs: [network, network-bind]
+
+parts:
+  deps:
+    plugin: nil
+    stage-packages:
+      - util-linux
+  core:
+    plugin: dump
+    source: http://pubfs.iotapp.site/n4installer/3.8.111/setup-linux-x86.tgz
+    source-type: tar
+    organize:
+      "*": bin/
+    stage:
+      - -bin/ext/jxbrowser
+      - "*"
+    override-stage: |
+      snapcraftctl stage
+      chmod +x bin/*
+  overlay:
+    plugin: dump
+    source: overlay
+    override-stage: |
+      craftctl default
+      craftctl set version="$(craftctl get version)-$(git rev-parse --short HEAD)"
+
+layout:
+  /etc/niagara:
+    bind: $SNAP_COMMON/sysroot/etc/niagara
+  $SNAP/etc:
+    bind: $SNAP_COMMON/etc
+  $SNAP/security/licenses:
+    bind: $SNAP_COMMON/security/licenses
+  $SNAP/modules:
+    bind: $SNAP_COMMON/modules

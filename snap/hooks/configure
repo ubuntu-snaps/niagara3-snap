@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+if [ -z "$(snapctl get debug)" ]; then
+	snapctl set debug=0;
+fi
