@@ -1,9 +1,11 @@
 #!/bin/bash -e
 mkdir -p $SNAP_COMMON/sysroot/etc/niagara
 mkdir -p $SNAP_COMMON/etc
+mkdir -p $SNAP_COMMON/daemon
 mkdir -p $SNAP_COMMON/licenses
 mkdir -p $SNAP_COMMON/modules
-mkdir -p $SNAP_COMMON/daemon
+mkdir -p $SNAP_COMMON/registry
+mkdir -p $SNAP_COMMON/security
 mkdir -p $SNAP_COMMON/stations
 
 echo Admin12345 > $SNAP_COMMON/sysroot/etc/niagara/.sp
