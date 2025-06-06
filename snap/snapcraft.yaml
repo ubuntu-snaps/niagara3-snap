@@ -11,6 +11,15 @@ confinement: devmode
 platforms:
   amd64:
 
+package-repositories:
+  - type: apt
+    formats: [deb]
+    architectures: [i386]
+    components: [main]
+    suites: [noble, noble-updates]
+    key-id: F6ECB3762474EDA9D21B7022871920D1991BC93C
+    url: http://mirrors.aliyun.com/ubuntu
+
 apps:
   niagarad:
     command: bin/niagarad-wrapper
