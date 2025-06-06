@@ -17,6 +17,7 @@ apps:
     daemon: simple
     environment:
       LD_LIBRARY_PATH: $SNAP/bin:$SNAP/usr/lib32
+      NIAGARA_HOME: $SNAP
       HOME: $SNAP_COMMON
     plugs: [network, network-bind]
 
