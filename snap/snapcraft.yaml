@@ -46,6 +46,7 @@ parts:
     stage-packages:
       - lib32stdc++6
       - libpam0g:i386
+      - zlib1g:i386
     override-stage: |
       snapcraftctl stage
       chmod +x bin/*
