@@ -39,6 +39,8 @@ parts:
     plugin: dump
     source: http://pubfs.iotapp.site/n4installer/3.8.111/setup-linux-x86.tgz
     source-type: tar
+    organize:
+      lib: lib-bundled/
     stage:
       - -install
       - -uninstall
@@ -63,14 +65,16 @@ layout:
   $SNAP/etc:
     bind: $SNAP_COMMON/etc
   $SNAP/daemon:
-    bind: $SNAP_COMMON/daemon    
+    bind: $SNAP_COMMON/daemon
+  $SNAP/lib:
+    bind: $SNAP_COMMON/lib
   $SNAP/licenses:
     bind: $SNAP_COMMON/licenses
   $SNAP/modules:
-    bind: $SNAP_COMMON/modules  
+    bind: $SNAP_COMMON/modules
   $SNAP/registry:
-    bind: $SNAP_COMMON/registry      
+    bind: $SNAP_COMMON/registry
   $SNAP/security:
-    bind: $SNAP_COMMON/security    
+    bind: $SNAP_COMMON/security
   $SNAP/stations:
     bind: $SNAP_COMMON/stations
