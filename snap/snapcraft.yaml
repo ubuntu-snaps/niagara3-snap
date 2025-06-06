@@ -34,6 +34,8 @@ parts:
     stage:
       - -bin/ext/jxbrowser
       - "*"
+    stage-packages:
+      - lib32stdc++6
     override-stage: |
       snapcraftctl stage
       chmod +x bin/*
